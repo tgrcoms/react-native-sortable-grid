@@ -295,11 +295,11 @@ class SortableGrid extends Component {
   assessGridSize = ({nativeEvent}) => {
     if (this.props.itemWidth && this.props.itemWidth < nativeEvent.layout.width) {
       this.itemsPerRow = Math.floor(nativeEvent.layout.width / this.props.itemWidth)
-      this.blockWidth = nativeEvent.layout.width / this.itemsPerRow
+      this.blockWidth = Math.floor(nativeEvent.layout.width / this.itemsPerRow)
       this.blockHeight = this.props.itemHeight || this.blockWidth
     }
     else {
-      this.blockWidth = nativeEvent.layout.width / this.itemsPerRow
+      this.blockWidth = Math.floor(nativeEvent.layout.width / this.itemsPerRow)
       this.blockHeight = this.blockWidth
     }
     if (this.state.gridLayout != nativeEvent.layout) {
